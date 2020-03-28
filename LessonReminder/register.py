@@ -1,20 +1,24 @@
+import json
+
 from vulcan import Vulcan
-import pickle
 
-def register(token, symbol, pin):
 
-    token = input('Podaj token: ').strip()
-    symbol = input('Podaj symbol: ').strip()
-    pin = input('Podaj PIN: ').strip()
+def register(token=None, symbol=None, pin=None):
+    if not token:
+        token = input('Podaj token: ').strip()
+    if not symbol:
+        symbol = input('Podaj symbol: ').strip()
+    if not pin:
+        pin = input('Podaj PIN: ').strip()
 
     if token and symbol and pin:
         certificate = Vulcan.register(token, symbol, pin)
 
-        with open('cert.json', 'wb') as f:
-            pickle.dump(certificate, f)
+        with open('cert.json', 'w') as f:
+            json.dump(certificate.json, f)
     else:
         raise ValueError
 
 
 if __name__ == '__main__':
-    register(token, symbol, pin)
+    register()

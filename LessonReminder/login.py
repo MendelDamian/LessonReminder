@@ -1,10 +1,11 @@
+import json
+
 from vulcan import Vulcan
-import pickle
+
 
 def login():
-
-    with open('cert.json', 'rb') as f:
-        certificate = pickle.load(f)
+    with open('cert.json', 'r') as f:
+        certificate = json.load(f)
 
     client = Vulcan(certificate)
 
