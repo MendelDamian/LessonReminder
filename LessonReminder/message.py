@@ -2,6 +2,7 @@ from fbchat import Client
 from fbchat.models import *
 import os
 
+
 def message(text):
     email = os.environ['E-MAIL']
     password = os.environ['FBPASSWORD']
