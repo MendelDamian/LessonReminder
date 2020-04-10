@@ -1,5 +1,4 @@
 import json
-
 from vulcan import Vulcan
 
 
